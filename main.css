@@ -1,0 +1,727 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+/* Esta linha importa a família de fontes Nunito do Google Fonts. Incluímos diferentes pesos (200, 300, 400, 600) para ter opções para estilos mais grossos e mais leves. */
+
+* {
+    font-family: 'Nunito', sans-serif;
+    /*Define a família de fontes padrão como Nunito, com sans-serif como fallback.*/
+    margin: 0;
+    padding: 0;
+    /* Remove margens e paddings padrão. */
+    box-sizing: border-box;
+    /*Garante um comportamento consistente do modelo de caixa (border-box).*/
+    text-decoration: none;
+    outline: none;
+    border: none;
+    /*Remove sublinhado, contorno e bordas padrão.*/
+    /*Capitaliza a primeira letra de cada palavra.*/
+    transition: all .2s linear;
+    /*Permite transições suaves para animações (todas as propriedades em 0,2 segundos usando uma função de temporização linear).*/
+}
+
+html {
+    font-size: 62.5%;
+    /* Define o tamanho da fonte base para melhor responsividade */
+    scroll-behavior: smooth;
+    /* Permite rolagem suave */
+    scroll-padding-top: 5rem;
+    /* Adiciona espaço na parte superior da página para evitar que o conteúdo se sobreponha ao cabeçalho */
+    overflow-x: hidden;
+    /* Oculta a barra de rolagem horizontal */
+}
+h3 > .especifico{
+    color: rgb(60, 194, 218);
+}
+html::-webkit-scrollbar {
+    /* Estilos para a barra de rolagem (Chrome/Safari) */
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    /*o que fica abaixo da barra*/
+    /* Estilos para a trilha da barra de rolagem (Chrome/Safari) */
+    background: black;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(60, 194, 218);
+    /*cor da barra*/
+}
+
+body {
+    background: #000000;
+    /* Define a cor do fundo para preto (#000) */
+}
+
+section {
+    padding: 5rem 9%;
+    /*Isso define o padding para todos os lados do elemento de seção. Adiciona um padding de 5rem (unidades rem são relativas ao tamanho da fonte do pai do elemento) na parte superior e inferior e 9% nas laterais esquerda e direita da seção.*/
+}
+
+/*Cabeçalho das sessões*/
+.heading {
+    text-align: center;
+    /*Isso centraliza o conteúdo de texto dentro do elemento.*/
+    margin-bottom: 3rem;
+    /*Isso adiciona uma margem de 3rem na parte inferior do elemento, criando espaço entre o título e o conteúdo seguinte.*/
+    position: relative;
+    /* Define o posicionamento do elemento relativo à sua posição normal no fluxo do documento. Será usado para posicionar um pseudo-elemento antes do título do cabeçalho.*/
+}
+.heading::before {
+    /* Pseudo-elemento para criar uma linha antes do título */
+    content: '';
+    /*Define o conteúdo do pseudo-elemento como uma string vazia, tornando-o essencialmente invisível, exceto pelos estilos aplicados a ele./
+    position: absolute;
+    top: 50%;
+    /*Posiciona a borda superior do pseudo-elemento em 50% da altura do seu elemento pai */
+    left: 0;
+    /*Posiciona a borda esquerda do pseudo-elemento em 0, alinhando-a com a borda esquerda do seu elemento pai.*/
+    transform: translateY(-50%);
+    /*Isso aplica uma transformação para mover o pseudo-elemento verticalmente em -50% de sua própria altura. Esse ajuste é necessário porque o elemento foi posicionado a 50% da parte superior e sua altura precisa ser centralizada dentro dessa posição.*/
+    height: .1rem;
+    /*Define a altura do pseudo-elemento para 0.1rem, criando a linha horizontal antes do título do cabeçalho*/
+    width: 100%;
+    /* Define a largura do pseudo-elemento para 100%, abrangendo toda a largura do seu elemento pai.*/
+    background: #aaa;
+    /*Define a cor de fundo do pseudo-elemento para um cinza claro (#aaa).*/
+    z-index: -1;
+    /*Define a ordem de empilhamento do pseudo-elemento. Um valor de z-index inferior significa que ele será renderizado atrás de outros elementos com valores de z-index mais altos. Isso garante que a linha apareça atrás do texto do cabeçalho.*/
+}
+.heading span {
+    /* Estilos para o texto do título */
+    font-size: 3rem;
+    /*Define o tamanho da fonte do texto para 3rem.*/
+    color: rgb(60, 194, 218);
+    /*Define a cor do texto para um azul escuro usando valores rgb */
+    /*Titulos de cada Cabeçalho*/
+    background: black;
+    /*Define a cor de fundo do elemento de texto para preto*/
+    padding: .5rem 1.5rem;
+    /*Adiciona padding na parte superior, inferior, esquerda e direita do elemento de texto.*/
+    border: 0.1rem solid #aaa;
+    /*Define uma borda sólida ao redor do elemento de texto com uma largura de*/
+    border-radius: .5rem;
+}
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    /* Tipo de exibição do botão (elemento inline-block permite quebras de linha antes e depois, mas mantém a formatação em blocos) */
+    padding: 1rem 2.8rem;
+    /* Padding interno do botão (espaçamento entre a borda e o conteúdo) */
+    padding-right: 3rem;
+    /* Ajuste adicional no padding direito para corrigir espaçamento desigual */
+    background: linear-gradient(130deg, rgb(60, 194, 218) 93%,
+    /*Cor de todos os botões*/ 
+    transparent 90%);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.btn:hover {
+    transform: scale(1.1);
+    /* Efeito de hover: amplia o botão em 10% */
+}
+
+.header {
+    position: fixed;
+    /* Posicionamento fixo: o cabeçalho fica sempre na parte superior da tela */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Posição superior esquerda (topo: 0; left: 0;) e ocupa toda a largura (right: 0;) */
+    display: flex;
+    /* Layout do cabeçalho: elementos dispostos na horizontal (flex) */
+    align-items: center;
+    /* Alinhamento vertical dos elementos do cabeçalho: centralizado (align-items: center) */
+    justify-content: space-between;
+    /* Alinhamento horizontal dos elementos do cabeçalho: espaçados entre si (justify-content: space-between) */
+    padding: 0 9%;
+     /* Padding interno do cabeçalho (espaçamento entre a borda e o conteúdo) */
+    z-index: 10000;
+    /* Índice de empilhamento alto (z-index) para garantir que o cabeçalho fique sobreposto a outros elementos */
+    background: rgb(0, 0, 0);
+}
+.header .logo {
+    font-weight: bolder;
+    /* Peso da fonte do logo (negrito) */
+    color: #fff;
+    /* Cor do texto do logo */
+    font-size: 3rem;
+    /* Tamanho da fonte do logo */
+}
+.header .logo span {
+    color: rgb(60, 194, 218);
+    /*Cor do Seja Jiu jitsu*/
+}
+.header .navbar a {
+    /* Estilos para os links de navegação dentro do cabeçalho (.header .navbar a) */
+    display: inline-block;
+    /* Tipo de exibição dos links (elemento inline-block permite quebras de linha antes e depois, mas mantém a formatação em blocos) */
+    padding: 1.5rem 2rem;
+    /* Padding interno dos links (espaçamento entre a borda e o conteúdo) */
+    font-size: 1.7rem;
+    /* Tamanho da fonte dos links */
+    color: #fff;
+    /* Cor do texto dos links */
+}
+.header .navbar a:hover {
+    background: rgb(60, 194, 218);
+    /*Cor dos acessos no topo do site ao passar o mouse por cima*/
+    transform: scale(1.2);
+    transition: 1.2s;
+}
+#menu-btn {
+    font-size: 3rem;
+    /* Tamanho da fonte do botão de menu */
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+.logo:hover{
+    transform: scale(1.2);
+}
+.inicio {
+    padding: 0;
+    /* Padding interno da seção (sem espaçamento entre a borda e o conteúdo) */
+    margin-top: 5rem;
+    /* Margem superior da seção */
+}
+.inicio .slide {
+    min-height: 170vh;
+    /* Altura mínima dos slides (90vh - 90% da altura da viewport) */
+    background-size: cover !important;
+    /* Tamanho do background-image para cobrir toda a área do slide (cover) e ignora outras definições (important) */
+    background-position: center !important;
+    /* Posição do background-image centralizada horizontalmente e verticalmente (center) e ignora outras definições (important) */
+    padding: 2rem 9%;
+    /* Padding interno dos slides (espaçamento entre a borda e o conteúdo) */
+    display: flex;
+    /* Layout dos slides: elementos dispostos na horizontal (flex) */
+    align-items: center;
+    /* Alinhamento vertical dos elementos do slide: centralizado (align-items: center) */
+}
+.inicio .slide .content {
+    width: 60rem;
+    /* Largura máxima do conteúdo dentro do slide */
+}
+
+.inicio .slide .content span {
+    font-size: 2rem;
+    /* Tamanho da fonte dos subtítulos */
+    color: rgb(60, 194, 218);
+    /*Cor do subtitulo do site nas imagens que ficam rodando*/
+    display: block;
+    /* Tipo de exibição do elemento (elemento block ocupa a largura total disponível) */
+}
+.inicio .slide .content h3 {
+    font-size: 5rem;
+    /* Tamanho da fonte dos títulos */
+    color: #fff;
+    padding: 1rem 0;
+    /* Padding superior e inferior dos títulos */
+}
+/*class de swipwer para criar as bolinhas*/
+.swiper-pagination-bullet {
+    height: 2rem;
+    width: 2rem;
+    background: black;
+    border-radius: 0;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: rgb(60, 194, 218);
+}
+.sobre {
+    display: flex;
+    /* Layout dos elementos da seção: dispostos na horizontal (flex) */
+    align-items: center;
+    /* Alinhamento vertical dos elementos da seção: centralizado (align-items: center) */
+    flex-wrap: wrap;
+    /* Permite quebra de linhas dentro da seção para dispositivos menores (flex-wrap: wrap) */
+    gap: 8rem;
+    /* Espaçamento entre os elementos da seção */
+}
+
+.sobre .image {
+    flex: 1 1 42rem;
+    /* Define o tamanho flexível da imagem (1 unidade mínima, 1 unidade preferida, 42rem tamanho máximo) */
+    position: relative;
+    /* Posicionamento relativo da imagem (permite posicionar elementos sobrepostos) */
+}
+.sobre .image::before,
+.sobre .image::after {
+    /* Estilos para pseudo-elementos "before" e "after" da imagem (.sobre .image::before, .sobre .image::after) */
+    content: '';
+    /* Define o conteúdo como vazio (para criar elementos invisíveis com estilos) */
+    position: absolute;
+    /* Posicionamento absoluto dos pseudo-elementos (sobrepostos à imagem) */
+    z-index: -1;
+    /* Define a ordem de empilhamento (garante que os pseudo-elementos fiquem atrás da imagem) */
+    
+    /*Cor da borda da imagem na tag sobre nós*/
+    height: 15rem;
+    /* Altura dos pseudo-elementos */
+    width: 15rem;
+    /* Largura dos pseudo-elementos */
+}
+.sobre .image::before {
+    /* Estilos para o pseudo-elemento "before" da imagem (.sobre .image::before) */
+    top: 0;
+    left: 0;
+    /* Posiciona o pseudo-elemento "before" na parte superior esquerda da imagem (top: 0; left: 0;) */
+}
+
+.sobre .image::after {
+    /* Estilos para o pseudo-elemento "after" da imagem (.sobre .image::after) */
+    bottom: 0;
+    right: 0;
+    /* Posiciona o pseudo-elemento "after" na parte inferior direita da imagem (bottom: 0; right: 0;) */
+}
+.sobre .image img {
+    /* Estilos para a imagem dentro da seção Sobre Nós (.sobre .image img) */
+    width: 100%;
+    /* Largura da imagem (100% da largura disponível) */
+    padding: 2rem;
+    /* Padding interno da imagem (espaçamento entre a borda e o conteúdo) */
+    border-radius: 30px;
+    
+}
+
+.sobre .content {
+    /* Estilos para o conteúdo textual dentro da seção Sobre Nós (.sobre .content) */
+    flex: 1 1 42rem;
+    /* Define o tamanho flexível do conteúdo (1 unidade mínima, 1 unidade preferida, 42rem tamanho máximo) */
+}
+.sobre .content span {
+    font-size: 2rem;
+    color: rgb(60, 194, 218);
+    /*Cor do subtitulo do Sobre nós*/
+}
+
+.sobre .content .title {
+    font-size: 4rem;
+    color: #fff;
+    margin-top: .5rem;
+}
+.sobre .content p {
+    font-size: 1.5rem;
+    /* Tamanho da fonte do parágrafo */
+    color: #aaa;
+    padding: 1rem 0;
+    /* Padding superior e inferior do parágrafo */
+    line-height: 2;
+    /* Altura da linha do texto do parágrafo (line-height: 2 define o espaçamento entre linhas como o dobro do tamanho da fonte) */
+}
+
+.sobre .content .box-container {
+    display: flex;
+     /* Layout dos elementos do container: dispostos na horizontal (flex) */
+    flex-wrap: wrap;
+    /* Permite quebra de linhas dentro do container para dispositivos menores (flex-wrap: wrap) */
+    gap: 2rem;
+    /* Espaçamento entre as caixas */
+    margin-top: 1rem;
+    /* Margem superior do container */
+}
+.sobre .content .box-container .box {
+    flex: 1 1 20rem;
+    /* Define o tamanho flexível da caixa (1 unidade mínima, 1 unidade preferida, 20rem tamanho máximo) */
+}
+
+.sobre .content .box-container .box h3 {
+    /* Estilos para o título (h3) dentro de cada caixa (.sobre .content .box-container .box h3) */
+    font-size: 2rem;
+    color: #fff;
+}
+
+.sobre .content .box-container .box h3 i {
+    /* Estilos para o ícone (<i>) dentro do título de cada caixa (.sobre .content .box-container .box h3 i) */
+    padding-right: 1.5rem;
+    /* Padding à direita do ícone */
+    color: rgb(60, 194, 218);
+    /*Cor dos checks na tag sobre nós*/
+}
+
+
+.oferecimentos .box-container .box .content p {
+    line-height: 2;
+    /* Altura da linha do parágrafo */
+    font-size: 1.5rem;
+    /* Tamanho da fonte do parágrafo */
+    color: #aaa;
+    /* Cor do texto do parágrafo */
+    padding: 1rem 0;
+    /* Espaçamento interno do parágrafo */
+}
+.review {
+    display: flex;
+    /* Layout flexível (flexbox) */
+    align-items: center;
+     /* Alinhamento vertical dos itens */
+    flex-wrap: wrap;
+    /* Permite quebra de linhas */
+    gap: 2rem;
+    /* Espaçamento entre os itens */
+}
+
+.review .information {
+    flex: 1 1 35rem;
+    /* Largura flexível (flex) */
+}
+.review .information span {
+    font-size: 2rem;
+     /* Tamanho da fonte para o subtítulo */
+    color: rgb(60, 194, 218);
+    /*Cor do subtitulo Feedback*/
+}
+
+.review .information h3 {
+    font-size: 3rem;
+    /* Tamanho da fonte para o título */
+    color: #fff;
+    /* Cor do título */
+    padding-top: 1rem;
+     /* Espaçamento superior do título */
+}
+
+.review .information p {
+    font-size: 1.5rem;
+    /* Tamanho da fonte para os parágrafos */
+    line-height: 2;
+    /* Altura da linha para os parágrafos */
+    color: #aaa;
+    /* Cor dos parágrafos */
+    padding: 1rem 0;
+     /* Espaçamento interno dos parágrafos */
+}
+
+.review .review-slider {
+    flex: 1 1 60rem;
+    /* Largura flexível (flex) */
+}
+
+.review .review-slider .slide {
+    background: linear-gradient(130deg, #111 93%, transparent 90%);
+     /* Fundo gradiente para os slides */
+    padding: 2rem 3rem;
+    /* Espaçamento interno dos slides */
+}
+
+.review .review-slider .slide p {
+    font-size: 1.5rem;
+    /* Tamanho da fonte para os parágrafos */
+    line-height: 2;
+    /* Altura da linha para os parágrafos */
+    color: #aaa;
+    /* Cor dos parágrafos */
+}
+
+.review .review-slider .slide .user {
+    display: flex;
+    /* Layout flexível (flexbox) para alinhar elementos */
+    align-items: center;
+    /* Alinhamento vertical dos elementos */
+    margin-top: 1.5rem;
+    /* Margem superior da seção de usuário */
+}
+
+.review .review-slider .slide .user img {
+    height: 5rem;
+    width: 5rem;
+    /* Altura e largura da imagem */
+    object-fit: cover;
+    /* Ajusta a imagem para cobrir o espaço (cortando se necessário) */
+    border-radius: 50%;
+    /* Borda arredondada para a imagem (círculo) */
+    margin-right: 1rem;
+    /* Margem direita da imagem */
+}
+
+.review .review-slider .slide .user h3 {
+    font-size: 2rem;
+     /* Tamanho da fonte para o nome do usuário */
+    color: #fff;
+     /* Cor do nome do usuário */
+}
+
+.review .review-slider .slide .user span {
+    color: rgb(60, 194, 218);
+    /*Cor das profissões de cada usuario nos comentarios*/
+    font-size: 1.5rem;
+    /* Tamanho da fonte para a profissão do usuário */
+}
+
+.review .review-slider .slide .user i {
+    font-size: 5rem;
+    /* Tamanho da fonte para o ícone de aspas */
+    margin-left: auto;
+    /* Margem esquerda para centralizar o ícone */
+    margin-right: 2rem;
+    /* Margem direita para ajustar o espaçamento */
+    color: rgb(60, 194, 218);
+    /*Cor das aspas dos comentarios*/
+}
+
+.posts .slide {
+    /* Estilos para cada slide do carrossel de posts (.posts) */
+    background: #111;
+    /* Fundo dos slides */
+    margin-bottom: 7rem;
+    /* Margem inferior entre os slides */
+}
+
+.posts .slide:hover .image img {
+    transform: scale(1.1);
+    /* Efeito de zoom na imagem ao passar o mouse */
+}
+
+.posts .slide .image {
+    height: 25rem;
+    /* Altura da imagem */
+    width: 100%;
+    /* Largura da imagem (100% do slide) */
+    overflow: hidden;
+     /* Oculta conteúdo que excede a altura da imagem */
+}
+.posts .slide .image img {
+    height: 100%;
+    width: 100%;
+     /* Altura e largura da imagem (100% para preencher o ".image") */
+    object-fit: cover;
+    /* Ajusta a imagem para cobrir o ".image" (cortando se necessário) */
+}
+
+.posts .slide .content {
+    padding: 2rem;
+    /* Espaçamento interno do conteúdo */
+}
+
+.posts .slide .content .link {
+    padding-bottom: 1.5rem;
+    /* Espaçamento inferior do link */
+    font-size: 1.5rem;
+    /* Tamanho da fonte para o link */
+}
+
+.posts .slide .content .link a {
+    color: rgb(60, 194, 218);
+    /*Cor das informações das fotos postadas*/
+}
+
+.posts .slide .content .link a:hover {
+    color: #fff;
+    /* Cor do link ao passar o mouse */
+}
+
+.posts .slide .content .link span {
+    color: #fff;
+    /* Cor do texto do span */
+    padding: 0 1rem;
+    /* Espaçamento ao redor do texto do span */
+}
+
+.posts .slide .content h3 {
+    font-size: 2rem;
+    /* Tamanho da fonte para o título */
+    color: #fff;
+    /* Cor do título */
+    line-height: 1.5;
+    /* Altura da linha do título */
+}
+
+.posts .slide .content p {
+    font-size: 1.5rem;
+     /* Tamanho da fonte para os parágrafos */
+    color: #aaa;
+    /* Cor dos parágrafos */
+    line-height: 2;
+    /* Altura da linha dos parágrafos */
+    /* Ajusta o espaçamento entre linhas */
+    padding: 1rem 0;
+    /* Espaçamento interno dos parágrafos */
+}
+
+.footer .box-container {
+    display: grid;
+     /* Layout com grid */
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    /* Define o tamanho das colunas (auto-fit distribui proporcionalmente e minmax define tamanho mínimo e máximo) */
+    gap: 1.5rem;
+    /* Espaçamento entre os itens do grid */
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.2rem;
+    /* Tamanho da fonte para o título */
+    color: #fff;
+    /* Cor do título */
+    padding: 1rem 1rem;
+    /* Espaçamento interno do título */
+}
+
+.footer .box-container .box .links {
+    font-size: 1.5rem;
+     /* Tamanho da fonte para os links */
+    display: block;
+    /* Tipo de display para os links (block para ocupar uma linha inteira) */
+    color: #aaa;
+     /* Cor dos links */
+    padding: 1rem 3rem;
+     /* Espaçamento interno dos links */
+}
+
+.footer .box-container .box p {
+    font-size: 1.5rem;
+    /* Tamanho da fonte para os parágrafos */
+    color: #aaa;
+    /* Cor dos parágrafos */
+    padding: 1rem 3rem;
+    /* Espaçamento interno dos parágrafos */
+}
+
+.footer .box-container .box p i {
+    padding-right: .5rem;
+    /* Espaçamento à direita do ícone */
+    color: rgb(60, 194, 218);
+    /* Cor dos ícones */
+}
+
+.footer .box-container .box .share {
+    padding: 1rem 3rem;
+    /* Espaçamento interno da seção de compartilhamento */
+}
+
+.footer .box-container .box .share a {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    /* Altura, largura e line-height iguais para um quadrado */
+    font-size: 1.7rem;
+    /* Tamanho da fonte para os ícones de compartilhamento */
+    color: #fff;
+    /* Cor dos ícones de compartilhamento */
+    background: #111;
+    /* Fundo dos ícones de compartilhamento */
+    border-radius: 50%;
+    /* Borda arredondada para formato circular */
+    margin-right: .5rem;
+    /* Espaçamento à direita do link */
+    text-align: center;
+    /* Centraliza o texto/ícone dentro do link */
+}
+
+.footer .box-container .box .share a:hover {
+    background: rgb(60, 194, 218);
+    /* Cor de fundo do link ao passar o mouse (azul) */
+}
+
+.footer .box-container .box form {
+    margin-left: 2rem;
+    /* Margem esquerda do formulário */
+}
+
+.footer .box-container .box form .email {
+    margin-bottom: 1rem;
+    /* Margem inferior do campo de email */
+    width: 100%;
+    /* Largura total do campo de email */
+    background: #111;
+    /* Fundo do campo de email */
+    padding: 1.2rem;
+     /* Espaçamento interno do campo de email */
+    font-size: 1.5rem;
+    /* Tamanho da fonte para o campo de email */
+    color: #fff;
+    /* Cor do texto do campo de email */
+    text-transform: none;
+    /* Desabilita a transformação automática de maiúsculas/minúsculas */
+}
+ .sobre .image img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+}
+@keyframes flutuar{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 150px;
+    }
+}
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+        scroll-padding: 7rem;
+    }
+    .header {
+        padding: 0 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+
+    .home .slide {
+        padding: 2rem 5%;
+    }
+
+    .home .slide .content {
+        width: 50rem;
+    }
+
+    .home .slide .content h3 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    #menu-btn.fa-times {
+        transform: rotate(180deg);
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #000;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .navbar a {
+        display: block;
+        font-size: 2rem;
+    }
+
+    .about {
+        gap: 3rem;
+    }
+
+    .about .image {
+        margin-top: 5rem;
+    }
+
+    .about .content .title {
+        font-size: 3rem;
+    }
+
+    .features .box-container .box.second {
+        flex-flow: column;
+    }
+}
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
